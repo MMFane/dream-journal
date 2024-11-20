@@ -1,13 +1,15 @@
-<script setup lang="ts">
-import DreamsList from './components/DreamsList.vue'
-import DreamsTagChart from './components/DreamsTagChart.vue'
-import TagsList from './components/TagsList.vue'
-</script>
+<script setup lang="ts"></script>
 
 <template>
-  <DreamsList />
-  <DreamsTagChart />
-  <TagsList />
+  <nav>
+    <RouterLink to="/">Home</RouterLink>
+    <RouterLink to="/dreams">Dreams</RouterLink>
+    <RouterLink to="/tags">Tags</RouterLink>
+    <RouterLink to="/visualizations">Visualizations</RouterLink>
+  </nav>
+  <main>
+    <RouterView />
+  </main>
 </template>
 
 <style scoped></style>
