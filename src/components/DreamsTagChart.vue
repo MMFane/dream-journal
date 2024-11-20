@@ -27,6 +27,13 @@ const tagCountsArray: Array<TagCount> = []
 for (let tag in tagCounts) {
   tagCountsArray.push({ name: tag, value: tagCounts[tag] })
 }
+tagCountsArray.sort((a: TagCount, b: TagCount) => {
+  if (a.value > b.value) {
+    return -1
+  } else if (a.value < b.value) {
+    return 1
+  } else return 0
+})
 console.log(tagCountsArray)
 </script>
 
