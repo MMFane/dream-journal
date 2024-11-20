@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, reactive, computed } from 'vue'
 import dreams from '../data/data.json'
-import { normalizeTag } from '../data/utils'
+import { normalize } from '../data/utils'
 
 const tags = reactive([])
 const filter = ref('')
@@ -9,9 +9,9 @@ const filter = ref('')
 dreams.forEach((dream) => {
   const dreamTags = dream.tags.split(', ')
   dreamTags.forEach((tag) => {
-    const normalizedtag = normalizeTag(tag)
-    if (!tags.includes(normalizedtag)) {
-      tags.push(normalizedtag)
+    const normalizedTag = normalize(tag)
+    if (!tags.includes(normalizedTag)) {
+      tags.push(normalizedTag)
     }
   })
 })
@@ -19,8 +19,9 @@ dreams.forEach((dream) => {
 tags.sort()
 
 const filteredTags = computed(() => {
+  const normalizedFilter = normalize(filter.value)
   return tags.filter((tag) => {
-    return tag.includes(filter.value)
+    return tag.includes(normalizedFilter)
   })
 })
 </script>

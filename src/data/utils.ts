@@ -1,3 +1,3 @@
-export const normalizeTag = (tag: string): string => {
-  return tag.toLowerCase().trim()
+export const normalize = (string: string): string => {
+  return string.toLowerCase().trim()
 }

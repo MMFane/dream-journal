@@ -2,19 +2,19 @@
 import dreams from '../data/data.json'
 import BarChart from './charts/BarChart.vue'
 import { TagCount } from './types/types'
-import { normalizeTag } from '../data/utils'
+import { normalize } from '../data/utils'
 
 const tagCounts: { [tagName: string]: number } = {}
 dreams.forEach((dream) => {
   const tags = dream.tags
   const tagsArray = tags?.split(', ')
   tagsArray?.forEach((tag) => {
-    const normalizedtag = normalizeTag(tag)
-    if (!Object.keys(tagCounts).includes(normalizedtag)) {
-      tagCounts[normalizedtag] = 1
+    const normalizedTag = normalize(tag)
+    if (!Object.keys(tagCounts).includes(normalizedTag)) {
+      tagCounts[normalizedTag] = 1
     } else {
-      const oldCount = tagCounts[normalizedtag]
-      tagCounts[normalizedtag] = oldCount + 1
+      const oldCount = tagCounts[normalizedTag]
+      tagCounts[normalizedTag] = oldCount + 1
     }
   })
 })
