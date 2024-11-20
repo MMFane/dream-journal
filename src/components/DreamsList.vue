@@ -1,8 +1,10 @@
 <script setup lang="ts">
-import dreams from "../data/data.json"
+import dreams from '../data/data.json'
 </script>
 
 <template>
-    <h2>Dream List</h2>
-    <li v-for="dream in dreams">{{ dream.date }}: {{ dream.description }}</li>
+  <h2>Dream List</h2>
+  <li v-for="dream in dreams" :key="dream.date">
+    {{ dream.date }}: {{ dream.description }}
+  </li>
 </template>
