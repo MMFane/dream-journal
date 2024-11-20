@@ -65,6 +65,7 @@ export default defineComponent({
         .attr('y', (d: TagCount) => y(d.value))
         .attr('width', x.bandwidth())
         .attr('height', (d: TagCount) => Math.abs(height - y(d.value)))
+        .style('fill', 'rgba(200, 100, 50, 1)')
     }
 
     return {

@@ -2,10 +2,7 @@
 import dreams from '../data/data.json'
 import BarChart from './charts/BarChart.vue'
 import { TagCount } from './types/types'
-
-const normalizeTag = (tag: string): string => {
-  return tag.toLowerCase().trim()
-}
+import { normalizeTag } from '../data/utils'
 
 const tagCounts: { [tagName: string]: number } = {}
 dreams.forEach((dream) => {
