@@ -1,5 +1,4 @@
 <script setup lang="ts">
-// import DreamsList from './components/DreamsList.vue';
 import DreamsTagChart from './components/DreamsTagChart.vue';
 import HelloWorld from './components/HelloWorld.vue'
 </script>
@@ -15,7 +14,6 @@ import HelloWorld from './components/HelloWorld.vue'
   </div>
   <HelloWorld msg="Vite + Vue" />
   <DreamsTagChart />
-  <!-- <DreamsList /> -->
 </template>
 
 <style scoped>
