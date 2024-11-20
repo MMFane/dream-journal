@@ -3,6 +3,6 @@ import dreams from "../data/data.json"
 </script>
 
 <template>
-    <h1>Dream List</h1>
+    <h2>Dream List</h2>
     <li v-for="dream in dreams">{{ dream.date }}: {{ dream.description }}</li>
 </template>
