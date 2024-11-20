@@ -2,6 +2,7 @@
 import { ref, reactive, computed } from 'vue'
 import dreams from '../data/data.json'
 import { normalize } from '../data/utils'
+import FilterBar from './FilterBar.vue'
 
 const tags = reactive([])
 const filter = ref('')
@@ -18,6 +19,10 @@ dreams.forEach((dream) => {
 
 tags.sort()
 
+function handleUpdateFilter(newValue: string) {
+  filter.value = newValue
+}
+
 const filteredTags = computed(() => {
   const normalizedFilter = normalize(filter.value)
   return tags.filter((tag) => {
@@ -28,12 +33,7 @@ const filteredTags = computed(() => {
 
 <template>
   <h2>Tags List</h2>
-  <v-text-field
-    v-model="filter"
-    append-icon="mdi-close"
-    prepend-icon="mdi-magnify"
-  >
-  </v-text-field>
+  <FilterBar :filter="filter" @update-filter="handleUpdateFilter" />
   <li v-for="tag in filteredTags" :key="tag">
     {{ tag }}
   </li>

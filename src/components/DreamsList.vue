@@ -4,10 +4,15 @@ import { normalize } from '../data/utils'
 
 import dreams from '../data/data.json'
 import DreamListItem from './DreamListItem.vue'
+import FilterBar from './FilterBar.vue'
 
 const dreamsList = reactive(dreams)
 
 const filter = ref('')
+
+function handleUpdateFilter(newValue: string) {
+  filter.value = newValue
+}
 
 const filteredDreams = computed(() => {
   return dreamsList.filter((dream) => {
@@ -24,12 +29,7 @@ const filteredDreams = computed(() => {
 
 <template>
   <h2>Dream List</h2>
-  <v-text-field
-    v-model="filter"
-    append-icon="mdi-close"
-    prepend-icon="mdi-magnify"
-  >
-  </v-text-field>
+  <FilterBar :filter="filter" @update-filter="handleUpdateFilter" />
   <v-list lines="one">
     <DreamListItem
       v-for="dream in filteredDreams"
