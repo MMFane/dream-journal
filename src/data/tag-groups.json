@@ -37,11 +37,11 @@
     "tense"
   ],
   "media": ["movie", "personify-character", "sci-fi"],
-  "clothes": ["fashion", "dressing"],
+  "fashion": ["fashion", "dressing", "decorating"],
   "fun": ["fun", "party", "dance", "surprise", "win", "drugs"],
   "perfoming": ["performance", "costumes", "actors", "celebrity"],
   "negative": ["late", "mess", "divorce"],
-  "stealth": ["sneak", "hiding", "hide", "spy", "spying"],
+  "stealth": ["sneak", "hiding", "hide", "spy", "spying", "infiltrate"],
   "danger": [
     "danger",
     "escape",
@@ -49,7 +49,6 @@
     "horror",
     "violence",
     "conflict",
-    "infiltrate",
     "dark",
     "unease",
     "poison",
@@ -68,20 +67,12 @@
     "christmas",
     "family-reunion"
   ],
-  "resources": ["money", "delivery"],
+  "resources": ["money", "delivery", "shopping"],
   "food": ["food", "candy", "cooking"],
   "antagonists": ["bullies", "Asshole", "demons", "monster"],
-  "planning": [
-    "planning",
-    "shopping",
-    "packing",
-    "getting-ready",
-    "cleaning",
-    "decorating",
-    "fixing"
-  ],
+  "planning": ["planning", "packing", "getting-ready", "cleaning", "fixing"],
   "searching": ["lost-item", "search"],
-  "loved-ones": ["friend-cameo", "family-cameo", "daisy", "grandma-day"],
+  "loved-ones": ["friend", "family", "daisy", "grandma-day"],
   "animals": [
     "animals",
     "animal-friend",
@@ -101,8 +92,8 @@
     "teaching",
     "math",
     "working",
-    "classmate-cameo",
-    "coworker-cameo"
+    "classmate",
+    "coworker"
   ],
   "fitness": [
     "soccer",
