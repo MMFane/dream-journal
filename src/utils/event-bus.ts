@@ -1,5 +1,7 @@
 import mitt from 'mitt'
-type EventBus = {
+
+type EventBusEvents = {
   tagClicked: string
 }
-export const eventBus = mitt<EventBus>()
+
+export const eventBus = mitt<EventBusEvents>()
