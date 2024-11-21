@@ -5,6 +5,8 @@ const localFilter = props.filter
 
 <template>
   <v-text-field
+    label="filter"
+    class="filter-bar"
     v-model="localFilter"
     append-icon="mdi-close"
     prepend-icon="mdi-magnify"
@@ -13,4 +15,8 @@ const localFilter = props.filter
   </v-text-field>
 </template>
 
-<style lang="css" scoped></style>
+<style lang="css" scoped>
+.filter-bar {
+  max-width: 500px;
+}
+</style>
