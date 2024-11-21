@@ -1,11 +1,15 @@
 <script setup lang="ts">
-const props = defineProps<{ filter: string }>()
+interface FilterBarProps {
+  filter: string
+  itemName: string
+}
+const props = defineProps<FilterBarProps>()
 const localFilter = props.filter
 </script>
 
 <template>
   <v-text-field
-    label="filter"
+    :label="`filter ${itemName}s`"
     class="filter-bar"
     v-model="localFilter"
     append-icon="mdi-close"

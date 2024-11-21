@@ -29,7 +29,11 @@ const filteredDreams = computed(() => {
 
 <template>
   <h1>Dream List</h1>
-  <FilterBar :filter="filter" @update-filter="handleUpdateFilter" />
+  <FilterBar
+    :filter="filter"
+    item-name="dream"
+    @update-filter="handleUpdateFilter"
+  />
   <v-list>
     <DreamListItem
       v-for="dream in filteredDreams"
