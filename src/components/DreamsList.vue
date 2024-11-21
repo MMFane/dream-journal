@@ -18,10 +18,12 @@ const filteredDreams = computed(() => {
   return dreamsList.filter((dream) => {
     const noramlizedDescription = normalize(dream.description)
     const noramlizedTags = normalize(dream.tags)
+    const normalizedCircumstances = normalize(dream.circumstances)
     const normalizedFilter = normalize(filter.value)
     return (
       noramlizedDescription.includes(normalizedFilter) ||
-      noramlizedTags.includes(normalizedFilter)
+      noramlizedTags.includes(normalizedFilter) ||
+      normalizedCircumstances.includes(normalizedFilter)
     )
   })
 })
