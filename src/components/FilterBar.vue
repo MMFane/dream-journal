@@ -20,7 +20,6 @@ watch(
     :label="`filter ${itemName}s`"
     class="filter-bar"
     v-model="localFilter"
-    append-icon="mdi-close"
     prepend-icon="mdi-magnify"
     @input="$emit('update-filter', localFilter)"
   >
