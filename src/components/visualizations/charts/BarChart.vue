@@ -5,7 +5,7 @@
 <script lang="ts">
 import { defineComponent, onMounted, ref } from 'vue'
 import * as d3 from 'd3'
-import { TagCount } from '../types/types'
+import { TagCount } from '../../../types/types'
 
 interface BarChartProps {
   data: Array<TagCount>
