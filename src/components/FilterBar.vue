@@ -1,10 +1,18 @@
 <script setup lang="ts">
+import { ref, watch } from 'vue'
 interface FilterBarProps {
   filter: string
   itemName: string
 }
 const props = defineProps<FilterBarProps>()
-const localFilter = props.filter
+const localFilter = ref(props.filter)
+
+watch(
+  () => props.filter,
+  (newValue: string) => {
+    localFilter.value = newValue
+  }
+)
 </script>
 
 <template>
