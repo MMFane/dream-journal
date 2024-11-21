@@ -16,7 +16,7 @@ const displayList = props.itemList.split(', ')
 </script>
 
 <template>
-  <v-chip-group selected-class="">
+  <v-chip-group selected-class="" :column="true">
     <v-chip
       v-for="item in displayList"
       :key="item"
