@@ -5,12 +5,15 @@ import { Dream } from './types/types'
 const props = defineProps<{ dream: Dream }>()
 
 const formattedDate = new Date(props.dream.date).toDateString()
+const firstLetter = props.dream.description.charAt(0).toUpperCase()
+const restOfDesc = props.dream.description.slice(1)
+const formattedDescription = firstLetter + restOfDesc + '.'
 </script>
 
 <template>
   <v-list-item class="dream">
     <h2 class="dream-heading">{{ formattedDate }}</h2>
-    <p>{{ props.dream.description }}</p>
+    <p>{{ formattedDescription }}</p>
     <ChipList :item-list="dream.tags" />
     <ChipList
       v-if="dream.circumstances.length"
