@@ -1,6 +1,10 @@
 <script setup lang="ts">
-import { ref, reactive, computed } from 'vue'
+import { ref, reactive, computed, onMounted, onUnmounted } from 'vue'
 import { normalize } from '../data/utils'
+import { eventBus } from '../utils/event-bus'
+
+onMounted(() => eventBus.on('tagClicked', handleChipClicked))
+onUnmounted(() => eventBus.off('tagClicked', handleChipClicked))
 
 import dreams from '../data/data.json'
 import DreamsListItem from './DreamsListItem.vue'
@@ -9,6 +13,11 @@ import FilterBar from './FilterBar.vue'
 const dreamsList = reactive(dreams)
 
 const filter = ref('')
+
+const handleChipClicked = (tag: string) => {
+  filter.value = tag
+  handleUpdateFilter(tag)
+}
 
 function handleUpdateFilter(newValue: string) {
   filter.value = newValue
@@ -41,6 +50,7 @@ const filteredDreams = computed(() => {
       v-for="dream in filteredDreams"
       :key="dream.date"
       :dream="dream"
+      :chip-clicked="handleChipClicked"
     />
   </v-list>
 </template>
