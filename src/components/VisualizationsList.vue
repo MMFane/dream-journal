@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import DreamsTagChart from './DreamsTagChart.vue'
+import DreamsTagChart from './charts/DreamsTagChart.vue'
 </script>
 
 <template>
