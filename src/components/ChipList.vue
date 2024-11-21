@@ -7,6 +7,7 @@ const handleChipClicked = (tag: string) => {
 }
 
 interface ChipListProps {
+  filter: string
   itemList: string
   variant?: VChip['variant']
 }
@@ -15,19 +16,19 @@ const displayList = props.itemList.split(', ')
 </script>
 
 <template>
-  <div class="chipList">
+  <v-chip-group selected-class="">
     <v-chip
       v-for="item in displayList"
       :key="item"
-      :variant="variant"
+      :variant="item == filter ? 'elevated' : variant"
       @click="handleChipClicked(item)"
       >{{ item }}</v-chip
     >
-  </div>
+  </v-chip-group>
 </template>
 
 <style lang="css" scoped>
-.chipList {
-  padding-bottom: 0.5rem;
+.v-chip--selected {
+  background-color: purple;
 }
 </style>

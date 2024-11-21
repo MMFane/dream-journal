@@ -2,7 +2,7 @@
 import ChipList from './ChipList.vue'
 import { Dream } from './types/types'
 
-const props = defineProps<{ dream: Dream }>()
+const props = defineProps<{ dream: Dream; filter: string }>()
 
 const formattedDate = new Date(props.dream.date).toDateString()
 const firstLetter = props.dream.description.charAt(0).toUpperCase()
@@ -14,10 +14,11 @@ const formattedDescription = firstLetter + restOfDesc + '.'
   <v-list-item class="dream">
     <h2 class="dream-heading">{{ formattedDate }}</h2>
     <p>{{ formattedDescription }}</p>
-    <ChipList :item-list="dream.tags" />
+    <ChipList :item-list="dream.tags" :filter="filter" />
     <ChipList
       v-if="dream.circumstances.length"
       :item-list="dream.circumstances"
+      :filter="filter"
       variant="text"
     />
     <v-divider />

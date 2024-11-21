@@ -15,8 +15,12 @@ const dreamsList = reactive(dreams)
 const filter = ref('')
 
 const handleChipClicked = (tag: string) => {
-  filter.value = tag
-  handleUpdateFilter(tag)
+  if (filter.value == tag) {
+    filter.value = ''
+  } else {
+    filter.value = tag
+  }
+  handleUpdateFilter(filter.value)
 }
 
 function handleUpdateFilter(newValue: string) {
@@ -50,7 +54,7 @@ const filteredDreams = computed(() => {
       v-for="dream in filteredDreams"
       :key="dream.date"
       :dream="dream"
-      :chip-clicked="handleChipClicked"
+      :filter="filter"
     />
   </v-list>
 </template>
