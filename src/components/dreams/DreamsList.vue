@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { ref, reactive, computed, onMounted, onUnmounted } from 'vue'
-import { normalize } from '../data/utils'
-import { eventBus } from '../utils/event-bus'
+import { normalize } from '../../data/utils'
+import { eventBus } from '../../utils/event-bus'
 
 onMounted(() => eventBus.on('tagClicked', handleChipClicked))
 onUnmounted(() => eventBus.off('tagClicked', handleChipClicked))
 
-import dreams from '../data/data.json'
+import dreams from '../../data/data.json'
 import DreamsListItem from './DreamsListItem.vue'
-import FilterBar from './FilterBar.vue'
+import FilterBar from '../FilterBar.vue'
 
 const dreamsList = reactive(dreams)
 

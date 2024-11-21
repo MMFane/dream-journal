@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import ChipList from './ChipList.vue'
-import { Dream } from '../types/types'
+import ChipList from '../ChipList.vue'
+import { Dream } from '../../types/types'
 
 const props = defineProps<{ dream: Dream; filter: string }>()
 

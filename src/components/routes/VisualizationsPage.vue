@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import VisualizationsList from '../charts/DreamsTagChart.vue'
+import VisualizationsList from '../visualizations/charts/DreamsTagChart.vue'
 </script>
 
 <template>
