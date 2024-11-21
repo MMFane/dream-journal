@@ -4,11 +4,8 @@
   <v-layout>
     <v-navigation-drawer expand-on-hover rail :mobile="false">
       <v-list>
-        <v-list-item prepend-icon="mdi-home"
-          ><RouterLink to="/">Home</RouterLink></v-list-item
-        >
         <v-list-item prepend-icon="mdi-weather-night"
-          ><RouterLink to="/dreams">Dreams</RouterLink></v-list-item
+          ><RouterLink to="/">Dreams</RouterLink></v-list-item
         >
         <v-list-item prepend-icon="mdi-tag"
           ><RouterLink to="/tags">Tags</RouterLink></v-list-item

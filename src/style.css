@@ -60,6 +60,10 @@ main.v-main {
   padding: 0 6rem;
 }
 
+.v-field__input {
+  min-height: unset;
+}
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;

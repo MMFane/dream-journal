@@ -11,12 +11,10 @@ import { createMemoryHistory, createRouter } from 'vue-router'
 
 import DreamsPage from './components/routes/DreamsPage.vue'
 import TagsPage from './components/routes/TagsPage.vue'
-import HomePage from './components/routes/HomePage.vue'
 import VisualizationPage from './components/routes/VisualizationsPage.vue'
 
 const routes = [
-  { path: '/', component: HomePage },
-  { path: '/dreams', component: DreamsPage },
+  { path: '/', component: DreamsPage },
   { path: '/tags', component: TagsPage },
   { path: '/visualizations', component: VisualizationPage }
 ]

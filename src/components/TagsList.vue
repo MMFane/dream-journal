@@ -32,8 +32,12 @@ const filteredTags = computed(() => {
 </script>
 
 <template>
-  <h2>Tags List</h2>
-  <FilterBar :filter="filter" @update-filter="handleUpdateFilter" />
+  <h1>Tags List</h1>
+  <FilterBar
+    :filter="filter"
+    item-name="tag"
+    @update-filter="handleUpdateFilter"
+  />
   <li v-for="tag in filteredTags" :key="tag">
     {{ tag }}
   </li>

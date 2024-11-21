@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import DreamsTagChart from '../DreamsTagChart.vue'
+import VisualizationsList from '../DreamsTagChart.vue'
 </script>
 
 <template>
-  <DreamsTagChart />
+  <VisualizationsList />
 </template>

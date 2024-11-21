@@ -3,7 +3,7 @@ import { ref, reactive, computed } from 'vue'
 import { normalize } from '../data/utils'
 
 import dreams from '../data/data.json'
-import DreamListItem from './DreamListItem.vue'
+import DreamsListItem from './DreamsListItem.vue'
 import FilterBar from './FilterBar.vue'
 
 const dreamsList = reactive(dreams)
@@ -28,10 +28,14 @@ const filteredDreams = computed(() => {
 </script>
 
 <template>
-  <h2>Dream List</h2>
-  <FilterBar :filter="filter" @update-filter="handleUpdateFilter" />
-  <v-list lines="one">
-    <DreamListItem
+  <h1>Dream List</h1>
+  <FilterBar
+    :filter="filter"
+    item-name="dream"
+    @update-filter="handleUpdateFilter"
+  />
+  <v-list>
+    <DreamsListItem
       v-for="dream in filteredDreams"
       :key="dream.date"
       :dream="dream"
