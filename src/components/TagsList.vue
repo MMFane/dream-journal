@@ -3,7 +3,7 @@ import { ref, reactive, computed } from 'vue'
 import dreams from '../data/data.json'
 import { normalize } from '../data/utils'
 import FilterBar from './FilterBar.vue'
-import { Dream } from './types/types'
+import { Dream } from '../types/types'
 
 const tags = reactive<Array<string>>([])
 const filter = ref('')
