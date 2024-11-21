@@ -28,9 +28,9 @@ const filteredDreams = computed(() => {
 </script>
 
 <template>
-  <h2>Dream List</h2>
+  <h1>Dream List</h1>
   <FilterBar :filter="filter" @update-filter="handleUpdateFilter" />
-  <v-list lines="one">
+  <v-list>
     <DreamListItem
       v-for="dream in filteredDreams"
       :key="dream.date"
