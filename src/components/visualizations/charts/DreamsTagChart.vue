@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import dreams from '../../data/data.json'
-import BarChart from './charts/BarChart.vue'
-import { TagCount } from '../../types/types'
-import { normalize } from '../../data/utils'
+import dreams from '../../../data/data.json'
+import BarChart from './BarChart.vue'
+import { TagCount } from '../../../types/types'
+import { normalize } from '../../../data/utils'
 
 const tagCounts: { [tagName: string]: number } = {}
 dreams.forEach((dream) => {
