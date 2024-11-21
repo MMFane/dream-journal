@@ -43,7 +43,7 @@ const filteredDreams = computed(() => {
 </script>
 
 <template>
-  <h1>Dream List</h1>
+  <h1>Dreams List</h1>
   <FilterBar
     :filter="filter"
     item-name="dream"
