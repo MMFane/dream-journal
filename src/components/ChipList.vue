@@ -18,6 +18,6 @@ const displayList = props.itemList.split(', ')
 
 <style lang="css" scoped>
 .chipList {
-  padding-top: 1rem;
+  padding-bottom: 0.5rem;
 }
 </style>
