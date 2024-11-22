@@ -21,11 +21,6 @@ describe('Button', () => {
   })
 
   it('renders properly', () => {
-    const wrapper = mount(DreamsList, {
-      global: {
-        plugins: [vuetify]
-      }
-    })
     expect(wrapper.text()).toContain('Dreams List')
   })
 })
