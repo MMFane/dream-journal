@@ -26,6 +26,6 @@ describe('Button', () => {
         plugins: [vuetify]
       }
     })
-    expect(wrapper.text()).toContain('Dream List')
+    expect(wrapper.text()).toContain('Dreams List')
   })
 })
