@@ -5,7 +5,7 @@ import { createVuetify } from 'vuetify'
 import DreamsList from '../../components/dreams/DreamsList.vue'
 import { Plugin } from 'vue'
 
-describe('Button', () => {
+describe('DreamsList', () => {
   let wrapper: VueWrapper
   let vuetify: Plugin
   beforeEach(() => {

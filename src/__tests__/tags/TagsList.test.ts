@@ -6,7 +6,7 @@ import { createVuetify } from 'vuetify'
 import TagsList from '../../components/tags/TagsList.vue'
 import { Plugin } from 'vue'
 
-describe('Button', () => {
+describe('TagsList', () => {
   let wrapper: VueWrapper
   let vuetify: Plugin
   beforeEach(() => {
