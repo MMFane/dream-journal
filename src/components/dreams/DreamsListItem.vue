@@ -1,13 +1,12 @@
 <script setup lang="ts">
 import ChipList from '../ChipList.vue'
 import { Dream } from '../../types/types'
+import { formatSentence } from '../../data/utils'
 
 const props = defineProps<{ dream: Dream; filter: string }>()
 
 const formattedDate = new Date(props.dream.date).toDateString()
-const firstLetter = props.dream.description.charAt(0).toUpperCase()
-const restOfDesc = props.dream.description.slice(1)
-const formattedDescription = firstLetter + restOfDesc + '.'
+const formattedDescription = formatSentence(props.dream.description)
 </script>
 
 <template>
