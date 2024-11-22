@@ -14,7 +14,7 @@ interface BarChartProps {
 export default defineComponent({
   name: 'BarChart',
   props: {
-    data: Array<TagCount>
+    data: Array<TagCount> // todo: make more generic
   },
   setup(props: BarChartProps) {
     const chartContainer = ref<HTMLElement | null>(null)
