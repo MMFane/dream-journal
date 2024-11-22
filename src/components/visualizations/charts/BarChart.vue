@@ -5,16 +5,20 @@
 <script lang="ts">
 import { defineComponent, onMounted, ref } from 'vue'
 import * as d3 from 'd3'
-import { TagCount } from '../../../types/types'
+
+interface GenericData {
+  name: string
+  value: number
+}
 
 interface BarChartProps {
-  data: Array<TagCount>
+  data: Array<GenericData>
 }
 
 export default defineComponent({
   name: 'BarChart',
   props: {
-    data: Array<TagCount> // todo: make more generic
+    data: Array<GenericData>
   },
   setup(props: BarChartProps) {
     const chartContainer = ref<HTMLElement | null>(null)
@@ -24,7 +28,7 @@ export default defineComponent({
       }
     })
 
-    const renderChart = (container: HTMLElement, data: TagCount[]) => {
+    const renderChart = (container: HTMLElement, data: GenericData[]) => {
       const margin = { top: 20, right: 20, bottom: 30, left: 40 }
       const width = 1200 - margin.left - margin.right
       const height = 400 - margin.top - margin.bottom
@@ -46,7 +50,7 @@ export default defineComponent({
       const y = d3
         .scaleLinear()
         .range([height, 0])
-        .domain([0, d3.max(data, (d: TagCount) => d.value) || 0])
+        .domain([0, d3.max(data, (d: GenericData) => d.value) || 0])
 
       svg
         .append('g')
@@ -61,10 +65,10 @@ export default defineComponent({
         .enter()
         .append('rect')
         .attr('class', 'bar')
-        .attr('x', (d: TagCount) => x(d.name) || 0)
-        .attr('y', (d: TagCount) => y(d.value))
+        .attr('x', (d: GenericData) => x(d.name) || 0)
+        .attr('y', (d: GenericData) => y(d.value))
         .attr('width', x.bandwidth())
-        .attr('height', (d: TagCount) => Math.abs(height - y(d.value)))
+        .attr('height', (d: GenericData) => Math.abs(height - y(d.value)))
         .style('fill', 'rgba(200, 100, 50, 1)')
     }
 
