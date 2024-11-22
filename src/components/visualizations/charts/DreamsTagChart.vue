@@ -37,7 +37,6 @@ tagCountsArray.sort((a: TagCount, b: TagCount) => {
     return 1
   } else return 0
 })
-console.log(tagCountsArray)
 </script>
 
 <template>
