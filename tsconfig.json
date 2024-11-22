@@ -7,7 +7,11 @@
   "compilerOptions": {
     "strict": true,
     "types": ["node", "vuetify", "vite/client", "vitest/globals"],
-    "typeRoots": ["./node_modules/@types", "./node_modules/vuetify/types"],
+    "typeRoots": [
+      "./node_modules/@types",
+      "./node_modules/vuetify/types",
+      "./node_modules"
+    ],
     "allowJs": true,
     "esModuleInterop": true,
     "resolveJsonModule": true,
