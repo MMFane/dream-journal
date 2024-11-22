@@ -2,7 +2,7 @@ import { describe, it, expect, afterEach, beforeEach } from 'vitest'
 import { mount, VueWrapper } from '@vue/test-utils'
 
 import { createVuetify } from 'vuetify'
-import DreamsList from '../components/dreams/DreamsList.vue'
+import DreamsList from '../../components/dreams/DreamsList.vue'
 import { Plugin } from 'vue'
 
 describe('Button', () => {
