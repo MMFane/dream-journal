@@ -3,7 +3,12 @@ import ChipList from '../ChipList.vue'
 import { Dream } from '../../types/types'
 import { formatSentence } from '../../data/utils'
 
-const props = defineProps<{ dream: Dream; filter: string }>()
+interface DreamsListItemProps {
+  dream: Dream
+  filter: string
+}
+
+const props = defineProps<DreamsListItemProps>()
 
 const formattedDate = new Date(props.dream.date).toDateString()
 const formattedDescription = formatSentence(props.dream.description)

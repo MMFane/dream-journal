@@ -1,11 +1,17 @@
 <script setup lang="ts">
-import dreams from '../../../data/data.json'
 import BarChart from './BarChart.vue'
 import { TagCount } from '../../../types/types'
 import { normalize } from '../../../data/utils'
+import { Dream } from '../../../types/types'
+
+interface DreamsTagChartProps {
+  dreams: Array<Dream>
+}
+
+const props = defineProps<DreamsTagChartProps>()
 
 const tagCounts: { [tagName: string]: number } = {}
-dreams.forEach((dream) => {
+props.dreams.forEach((dream) => {
   const tags = dream.tags
   const tagsArray = tags?.split(', ')
   tagsArray?.forEach((tag) => {

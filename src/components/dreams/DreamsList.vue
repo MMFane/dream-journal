@@ -2,15 +2,21 @@
 import { ref, reactive, computed, onMounted, onUnmounted } from 'vue'
 import { normalize } from '../../data/utils'
 import { eventBus } from '../../utils/event-bus'
+import { Dream } from '../../types/types'
 
 onMounted(() => eventBus.on('tagClicked', handleChipClicked))
 onUnmounted(() => eventBus.off('tagClicked', handleChipClicked))
 
-import dreams from '../../data/data.json'
 import DreamsListItem from './DreamsListItem.vue'
 import FilterBar from '../FilterBar.vue'
 
-const dreamsList = reactive(dreams)
+interface DreamsListProps {
+  dreams: Array<Dream>
+}
+
+const props = defineProps<DreamsListProps>()
+
+const dreamsList = reactive(props.dreams)
 
 const filter = ref('')
 
