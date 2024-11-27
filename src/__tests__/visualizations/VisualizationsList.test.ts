@@ -25,6 +25,6 @@ describe('VisualizationsList', () => {
   })
 
   it('renders properly', () => {
-    expect(wrapper.text()).toContain('Visualizations') // todo: figure out why h1 is rendering here and not in browser
+    expect(wrapper.text()).toContain('Visualizations')
   })
 })
