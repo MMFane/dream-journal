@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { ref, reactive, computed } from 'vue'
-import { VList, VListItem } from 'vuetify/components'
+import { VList, VListItem, VSwitch } from 'vuetify/components'
 import { normalize } from '../../data/utils'
 import FilterBar from '../FilterBar.vue'
 import { Dream } from '../../types/types'
+import tagGroups from '../../data/tag-groups.json'
 
 interface TagsListProps {
   dreams: Array<Dream>
@@ -13,6 +14,7 @@ const props = defineProps<TagsListProps>()
 
 const tags = reactive<Array<string>>([])
 const filter = ref('')
+const displayGrouped = ref(false)
 
 props.dreams.forEach((dream: Dream) => {
   const dreamTags = dream.tags.split(', ')
@@ -45,7 +47,18 @@ const filteredTags = computed(() => {
     item-name="tag"
     @update-filter="handleUpdateFilter"
   />
-  <VList>
+  <VSwitch label="Group Tags" v-model="displayGrouped"></VSwitch>
+  <VList v-if="displayGrouped">
+    <VListItem v-for="(group, groupName) in tagGroups" :key="groupName">
+      <VList>
+        <h2>{{ groupName }}</h2>
+        <VListItem v-for="tag in group" :key="tag">
+          {{ tag }}
+        </VListItem>
+      </VList>
+    </VListItem>
+  </VList>
+  <VList v-else>
     <VListItem v-for="tag in filteredTags" :key="tag">
       {{ tag }}
     </VListItem>
