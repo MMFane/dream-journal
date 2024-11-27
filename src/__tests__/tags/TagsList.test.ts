@@ -1,8 +1,8 @@
 import { describe, it, expect, afterEach, beforeEach } from 'vitest'
 import { mount, VueWrapper } from '@vue/test-utils'
 import dreamsFixture from '../__fixtures__/dreams-fixture.json'
+import vuetifyPlugin from '../../vuetify'
 
-import { createVuetify } from 'vuetify'
 import TagsList from '../../components/tags/TagsList.vue'
 import { Plugin } from 'vue'
 
@@ -10,7 +10,7 @@ describe('TagsList', () => {
   let wrapper: VueWrapper
   let vuetify: Plugin
   beforeEach(() => {
-    vuetify = createVuetify()
+    vuetify = vuetifyPlugin
     wrapper = mount(TagsList, {
       global: {
         plugins: [vuetify]

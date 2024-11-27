@@ -18,7 +18,6 @@ describe('VisualizationsList', () => {
   })
 
   it('renders properly', () => {
-    console.log(wrapper.html())
     expect(wrapper.text()).toContain('mustard')
     expect(wrapper.text()).toContain('sriracha')
     expect(wrapper.text()).toContain('aioli')

@@ -1,9 +1,7 @@
 import { describe, it, expect, afterEach, beforeEach } from 'vitest'
 import { mount, VueWrapper, config } from '@vue/test-utils'
+import vuetifyPlugin from '../vuetify'
 
-import { createVuetify } from 'vuetify'
-import * as components from 'vuetify/components'
-import * as directives from 'vuetify/directives'
 import FilterBar from '../components/FilterBar.vue'
 import { Plugin } from 'vue'
 
@@ -14,7 +12,7 @@ describe('FilterBar', () => {
   let wrapper: VueWrapper
   let vuetify: Plugin
   beforeEach(() => {
-    vuetify = createVuetify({ components, directives })
+    vuetify = vuetifyPlugin
     wrapper = mount(FilterBar, {
       global: {
         plugins: [vuetify]

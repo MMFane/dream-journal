@@ -1,7 +1,7 @@
 import { describe, it, expect, afterEach, beforeEach } from 'vitest'
 import { mount, VueWrapper } from '@vue/test-utils'
+import vuetifyPlugin from '../vuetify'
 
-import { createVuetify } from 'vuetify'
 import ChipList from '../components/ChipList.vue'
 import { Plugin } from 'vue'
 
@@ -9,7 +9,7 @@ describe('ChipList', () => {
   let wrapper: VueWrapper
   let vuetify: Plugin
   beforeEach(() => {
-    vuetify = createVuetify()
+    vuetify = vuetifyPlugin
     wrapper = mount(ChipList, {
       global: {
         plugins: [vuetify]

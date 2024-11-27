@@ -1,7 +1,7 @@
 import { describe, it, expect, afterEach, beforeEach } from 'vitest'
 import { mount, VueWrapper } from '@vue/test-utils'
+import vuetifyPlugin from '../../vuetify'
 
-import { createVuetify } from 'vuetify'
 import DreamsListItem from '../../components/dreams/DreamsListItem.vue'
 import { Plugin } from 'vue'
 import dreamsFixture from '../__fixtures__/dreams-fixture.json'
@@ -13,7 +13,7 @@ describe('DreamsListItem', () => {
   let wrapper: VueWrapper
   let vuetify: Plugin
   beforeEach(() => {
-    vuetify = createVuetify()
+    vuetify = vuetifyPlugin
     wrapper = mount(DreamsListItem, {
       global: {
         plugins: [vuetify]
