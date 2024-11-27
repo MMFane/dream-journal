@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import VisualizationsList from '../visualizations/charts/DreamsTagChart.vue'
+import VisualizationsList from '../visualizations/VisualizationsList.vue'
+import dreams from '../../data/data.json'
 </script>
 
 <template>
-  <VisualizationsList />
+  <VisualizationsList :dreams="dreams" />
 </template>

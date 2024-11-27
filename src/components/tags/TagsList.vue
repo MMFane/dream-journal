@@ -1,14 +1,20 @@
 <script setup lang="ts">
 import { ref, reactive, computed } from 'vue'
-import dreams from '../../data/data.json'
+import { VList, VListItem } from 'vuetify/components'
 import { normalize } from '../../data/utils'
 import FilterBar from '../FilterBar.vue'
 import { Dream } from '../../types/types'
 
+interface TagsListProps {
+  dreams: Array<Dream>
+}
+
+const props = defineProps<TagsListProps>()
+
 const tags = reactive<Array<string>>([])
 const filter = ref('')
 
-dreams.forEach((dream: Dream) => {
+props.dreams.forEach((dream: Dream) => {
   const dreamTags = dream.tags.split(', ')
   dreamTags.forEach((tag) => {
     const normalizedTag = normalize(tag)
@@ -39,7 +45,9 @@ const filteredTags = computed(() => {
     item-name="tag"
     @update-filter="handleUpdateFilter"
   />
-  <li v-for="tag in filteredTags" :key="tag">
-    {{ tag }}
-  </li>
+  <VList>
+    <VListItem v-for="tag in filteredTags" :key="tag">
+      {{ tag }}
+    </VListItem>
+  </VList>
 </template>

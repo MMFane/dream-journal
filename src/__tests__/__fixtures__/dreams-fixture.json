@@ -1,0 +1,20 @@
+[
+  {
+    "date": "2024-11-20",
+    "description": "dream 1",
+    "tags": "red, green",
+    "circumstances": ""
+  },
+  {
+    "date": "2024-11-19",
+    "description": "dream 2",
+    "tags": "green, blue, purple",
+    "circumstances": "bad, good"
+  },
+  {
+    "date": "2024-11-18",
+    "description": "dream 3",
+    "tags": "green, purple",
+    "circumstances": "ouch"
+  }
+]

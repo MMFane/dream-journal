@@ -1,17 +1,22 @@
 <script setup lang="ts">
 import ChipList from '../ChipList.vue'
+import { VListItem, VDivider } from 'vuetify/components'
 import { Dream } from '../../types/types'
+import { formatSentence } from '../../data/utils'
 
-const props = defineProps<{ dream: Dream; filter: string }>()
+interface DreamsListItemProps {
+  dream: Dream
+  filter: string
+}
+
+const props = defineProps<DreamsListItemProps>()
 
 const formattedDate = new Date(props.dream.date).toDateString()
-const firstLetter = props.dream.description.charAt(0).toUpperCase()
-const restOfDesc = props.dream.description.slice(1)
-const formattedDescription = firstLetter + restOfDesc + '.'
+const formattedDescription = formatSentence(props.dream.description)
 </script>
 
 <template>
-  <v-list-item class="dream">
+  <VListItem class="dream">
     <h2 class="dream-heading">{{ formattedDate }}</h2>
     <p>{{ formattedDescription }}</p>
     <ChipList :item-list="dream.tags" :filter="filter" />
@@ -21,8 +26,8 @@ const formattedDescription = firstLetter + restOfDesc + '.'
       :filter="filter"
       variant="text"
     />
-    <v-divider />
-  </v-list-item>
+    <VDivider />
+  </VListItem>
 </template>
 
 <style lang="css" scoped>
