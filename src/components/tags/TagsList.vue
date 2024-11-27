@@ -1,19 +1,30 @@
 <script setup lang="ts">
 import { ref, reactive, computed } from 'vue'
-import { VList, VListItem, VSwitch } from 'vuetify/components'
+import {
+  VList,
+  VListItem,
+  VSwitch,
+  VBanner,
+  VBannerText
+} from 'vuetify/components'
 import { normalize } from '../../data/utils'
 import FilterBar from '../FilterBar.vue'
 import { Dream } from '../../types/types'
-import tagGroups from '../../data/tag-groups.json'
+import tagGroupsJson from '../../data/tag-groups.json'
 
 interface TagsListProps {
   dreams: Array<Dream>
+}
+
+interface TagGroups {
+  [key: string]: string[]
 }
 
 const props = defineProps<TagsListProps>()
 
 const tags = reactive<Array<string>>([])
 const filter = ref('')
+const tagGroups: TagGroups = tagGroupsJson
 const displayGrouped = ref(false)
 
 props.dreams.forEach((dream: Dream) => {
@@ -24,6 +35,23 @@ props.dreams.forEach((dream: Dream) => {
       tags.push(normalizedTag)
     }
   })
+})
+
+const ungroupedTags: string[] = []
+
+// check for missing tags
+tags.forEach((tag) => {
+  const groups = Object.keys(tagGroups)
+  let tagFound = false
+  for (let i = 0; i < groups.length; i++) {
+    if (tagGroups[groups[i]].includes(tag)) {
+      tagFound = true
+      break
+    }
+  }
+  if (!tagFound) {
+    ungroupedTags.push(tag)
+  }
 })
 
 tags.sort()
@@ -48,6 +76,20 @@ const filteredTags = computed(() => {
     @update-filter="handleUpdateFilter"
   />
   <VSwitch label="Group Tags" v-model="displayGrouped"></VSwitch>
+  <VBanner
+    v-if="displayGrouped && ungroupedTags.length"
+    bg-color="error"
+    icon="mdi-clipboard-alert"
+    density="compact"
+  >
+    <VBannerText>
+      Found ungrouped tags:
+      <span v-for="(tag, index) in ungroupedTags" :key="tag"
+        >{{ tag
+        }}<span v-if="index !== ungroupedTags.length - 1">, </span></span
+      >
+    </VBannerText>
+  </VBanner>
   <VList v-if="displayGrouped">
     <VListItem v-for="(group, groupName) in tagGroups" :key="groupName">
       <VList>
