@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { VChip } from 'vuetify/components'
+import { VChipGroup, VChip } from 'vuetify/components'
 import { eventBus } from '../utils/event-bus'
 
 const handleChipClicked = (tag: string) => {
@@ -16,15 +16,15 @@ const displayList = props.itemList.split(', ')
 </script>
 
 <template>
-  <v-chip-group selected-class="" :column="true">
-    <v-chip
+  <VChipGroup selected-class="" :column="true">
+    <VChip
       v-for="item in displayList"
       :key="item"
       :variant="item == filter ? 'elevated' : variant"
       @click="handleChipClicked(item)"
-      >{{ item }}</v-chip
+      >{{ item }}</VChip
     >
-  </v-chip-group>
+  </VChipGroup>
 </template>
 
 <style lang="css" scoped>

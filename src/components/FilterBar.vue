@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, watch } from 'vue'
+import { VTextField } from 'vuetify/components'
 interface FilterBarProps {
   filter: string
   itemName: string
@@ -16,14 +17,14 @@ watch(
 </script>
 
 <template>
-  <v-text-field
+  <VTextField
     :label="`filter ${itemName}s`"
     class="filter-bar"
     v-model="localFilter"
     prepend-icon="mdi-magnify"
     @input="$emit('update-filter', localFilter)"
   >
-  </v-text-field>
+  </VTextField>
 </template>
 
 <style lang="css" scoped>

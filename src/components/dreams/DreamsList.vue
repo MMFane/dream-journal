@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, reactive, computed, onMounted, onUnmounted } from 'vue'
+import { VList } from 'vuetify/components'
 import { normalize } from '../../data/utils'
 import { eventBus } from '../../utils/event-bus'
 import { Dream } from '../../types/types'
@@ -55,12 +56,12 @@ const filteredDreams = computed(() => {
     item-name="dream"
     @update-filter="handleUpdateFilter"
   />
-  <v-list>
+  <VList>
     <DreamsListItem
       v-for="dream in filteredDreams"
       :key="dream.date"
       :dream="dream"
       :filter="filter"
     />
-  </v-list>
+  </VList>
 </template>

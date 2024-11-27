@@ -1,28 +1,37 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import {
+  VApp,
+  VMain,
+  VLayout,
+  VNavigationDrawer,
+  VList,
+  VListItem
+} from 'vuetify/components'
+</script>
 
 <template>
-  <v-app>
-    <v-layout>
-      <v-navigation-drawer expand-on-hover rail :mobile="false">
-        <v-list>
-          <v-list-item prepend-icon="mdi-weather-night"
-            ><RouterLink to="/">Dreams</RouterLink></v-list-item
+  <VApp>
+    <VLayout>
+      <VNavigationDrawer expand-on-hover rail :mobile="false">
+        <VList>
+          <VListItem prepend-icon="mdi-weather-night"
+            ><RouterLink to="/">Dreams</RouterLink></VListItem
           >
-          <v-list-item prepend-icon="mdi-tag"
-            ><RouterLink to="/tags">Tags</RouterLink></v-list-item
+          <VListItem prepend-icon="mdi-tag"
+            ><RouterLink to="/tags">Tags</RouterLink></VListItem
           >
-          <v-list-item prepend-icon="mdi-chart-box-multiple-outline"
+          <VListItem prepend-icon="mdi-chart-box-multiple-outline"
             ><RouterLink to="/visualizations"
               >Visualizations</RouterLink
-            ></v-list-item
+            ></VListItem
           >
-        </v-list>
-      </v-navigation-drawer>
-      <v-main>
+        </VList>
+      </VNavigationDrawer>
+      <VMain>
         <RouterView />
-      </v-main>
-    </v-layout>
-  </v-app>
+      </VMain>
+    </VLayout>
+  </VApp>
 </template>
 
 <style scoped></style>
