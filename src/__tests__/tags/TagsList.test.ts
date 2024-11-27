@@ -33,5 +33,14 @@ describe('TagsList', () => {
     expect(wrapper.text()).not.toContain('orange')
   })
 
-  // todo: test filtering once I figure out DOM rendering
+  it('filters tags', async () => {
+    const filterBar = wrapper.find('.v-field__input')
+    await filterBar.setValue('blue')
+    await filterBar.trigger('input')
+    expect(wrapper.text()).toContain('blue')
+    expect(wrapper.text()).not.toContain('green')
+    expect(wrapper.text()).not.toContain('purple')
+    expect(wrapper.text()).not.toContain('red')
+    expect(wrapper.text()).not.toContain('orange')
+  })
 })

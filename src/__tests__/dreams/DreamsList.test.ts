@@ -26,5 +26,23 @@ describe('DreamsList', () => {
 
   it('renders properly', () => {
     expect(wrapper.text()).toContain('Dreams List')
+    expect(wrapper.text()).toContain('Dream 1')
+    expect(wrapper.text()).toContain('Dream 2')
+    expect(wrapper.text()).toContain('Dream 3')
+  })
+
+  it('filters dream by description', async () => {
+    const filterBar = wrapper.find('.v-field__input')
+    await filterBar.setValue('1')
+    await filterBar.trigger('input')
+    expect(wrapper.text()).toContain('Dream 1')
+  })
+
+  it('filters dream by tag', async () => {
+    const filterBar = wrapper.find('.v-field__input')
+    await filterBar.setValue('purple')
+    await filterBar.trigger('input')
+    expect(wrapper.text()).toContain('Dream 2')
+    expect(wrapper.text()).toContain('Dream 3')
   })
 })
