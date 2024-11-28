@@ -5,7 +5,10 @@ import {
   VListItem,
   VSwitch,
   VBanner,
-  VBannerText
+  VBannerText,
+  VExpansionPanel,
+  VExpansionPanels,
+  VExpansionPanelText
 } from 'vuetify/components'
 import { normalize } from '../../data/utils'
 import FilterBar from '../FilterBar.vue'
@@ -66,6 +69,26 @@ const filteredTags = computed(() => {
     return tag.includes(normalizedFilter)
   })
 })
+
+const filteredGroupedTags = computed(() => {
+  const normalizedFilter = normalize(filter.value)
+  const groups = Object.keys(tagGroups)
+  let filteredResult: { [key: string]: string[] } = {}
+  for (let i = 0; i < groups.length; i++) {
+    tagGroups[groups[i]].forEach((tag) => {
+      if (tag.includes(normalizedFilter)) {
+        filteredResult[groups[i]] = tagGroups[groups[i]]
+      }
+    })
+    if (
+      tagGroups[groups[i]].includes(normalizedFilter) || // to do make it so partial matches on tags also works
+      groups[i].includes(normalizedFilter)
+    ) {
+      filteredResult[groups[i]] = tagGroups[groups[i]]
+    }
+  }
+  return filteredResult
+})
 </script>
 
 <template>
@@ -90,16 +113,21 @@ const filteredTags = computed(() => {
       >
     </VBannerText>
   </VBanner>
-  <VList v-if="displayGrouped">
-    <VListItem v-for="(group, groupName) in tagGroups" :key="groupName">
-      <VList>
-        <h2>{{ groupName }}</h2>
-        <VListItem v-for="tag in group" :key="tag">
-          {{ tag }}
-        </VListItem>
-      </VList>
-    </VListItem>
-  </VList>
+  <VExpansionPanels v-if="displayGrouped">
+    <VExpansionPanel
+      v-for="(group, groupName) in filteredGroupedTags"
+      :key="groupName"
+      :title="groupName.toString()"
+    >
+      <VExpansionPanelText>
+        <VList>
+          <VListItem v-for="tag in group" :key="tag">
+            {{ tag }}
+          </VListItem>
+        </VList>
+      </VExpansionPanelText>
+    </VExpansionPanel>
+  </VExpansionPanels>
   <VList v-else>
     <VListItem v-for="tag in filteredTags" :key="tag">
       {{ tag }}
