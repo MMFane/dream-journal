@@ -11,7 +11,7 @@
     "experiment"
   ],
   "places": [
-    "Athens",
+    "athens",
     "city",
     "vegas",
     "hospital",
@@ -69,7 +69,7 @@
   ],
   "resources": ["money", "delivery", "shopping"],
   "food": ["food", "candy", "cooking"],
-  "antagonists": ["bullies", "Asshole", "demons", "monster"],
+  "antagonists": ["bullies", "asshole", "demons", "monster"],
   "planning": ["planning", "packing", "getting-ready", "cleaning", "fixing"],
   "searching": ["lost-item", "search"],
   "loved-ones": ["friend", "family", "daisy", "grandma-day"],
